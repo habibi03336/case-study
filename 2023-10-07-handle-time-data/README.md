@@ -14,10 +14,8 @@ console.log(time); // 1696659044172
 ```javascript
 // 날짜를 출력하는 함수
 function printDateTime(year, month, day, hour, minute){
-    console.log(
-	`${1970 + year}.${month.toString().padStart(2, "0")}.${day.toString().padStart(2, "0")}
-${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`
-)
+    console.log(`${1970 + year}.${month.toString().padStart(2, "0")}.${day.toString().padStart(2, "0")}`)
+    console.log(`${hour.toString().padStart(2, "0")}:${minute.toString().padStart(2, "0")}`)
 }
 ```
 
@@ -113,12 +111,13 @@ printDateTime(realYear, realMonth, daysLeft+1, hour, minute);
 
 따라서 1을 빼줘서 일반적인 12진법 처럼 바꿔서 계산을 진행한다. 그리고 계산 후 나온 달에 + 1을 해주면 원하는 값을 얻을 수 있다.
 
-```java
-int year = 2023;
-int month = 9;
-int diff = -10; // 10개월 전 연월 구하기
+```javascript
+const year = 2023;
+const month = 9;
+const diff = -10; // 10개월 전 연월 구하기
 
-int months = year * 12 + month - 1 + diff;
-int targetMonth = months % 12 + 1;
-int targetYear = months / 12;
+const months = year * 12 + month - 1 + diff;
+const targetMonth = months % 12 + 1;
+const targetYear = Math.floor(months / 12);
+console.log(targetYear, targetMonth) // 2022 11
 ```
