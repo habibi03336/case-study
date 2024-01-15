@@ -11,7 +11,9 @@
 하지만 이 상태로 localhost:9200에 접근하면 아무런 데이터도 오지 않는다.
 엘라스틱서치는 기본적으로 https를 활성화해놓는다. 따라서 로컬에서 http로 ssl없이 접근하기 위해서는 https를 비활성화해야한다. 아래 명령어로 컨네이너 내부 쉘에 접속한다.
 
-    docker exec -it {container id} /bin/bash
+    docker exec -u 0 -it {container id} /bin/bash
+
+> -u 0 옵션을 주면 도커 컨테이너 내부에 root 유저로 들어갈 수 있다. nano 등 text editor를 설치할 때 root 권한이 필요하다.
 
 그리고 엘라스틱서치 폴더의 config 폴더로 들어간다. elasticsearch.yml 파일에서 아래 항목들을 false로 설정해준다. 그리고 도커 컨테이너를 중지했다 다시 시작하면 새로한 설정이 적용된다.
 
